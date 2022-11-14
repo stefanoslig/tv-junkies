@@ -33,8 +33,8 @@
       <a
         class="color-primary"
         target="_blank"
-        href="https://www.tvmaze.com/api"
-        title="TVmaze"
+        href="https://github.com/stefanoslig/tv-junkies"
+        title="Github"
       >
         <div class="i-ph-github-logo-fill"></div>
       </a>
