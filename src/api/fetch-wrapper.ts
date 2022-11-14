@@ -23,12 +23,21 @@ async function get<T>(path: string, options?: RequestInit): Promise<T> {
   return await http<T>(path, config);
 }
 
-export function fetchShows(query: string): Promise<Shows> {
+export function searchShows(query: string, page = 0): Promise<Shows> {
   const _query = new URLSearchParams({
     q: query,
+    page: page as unknown as string,
   });
 
   return get<Shows>(`${baseUrl}/search/shows?${_query}`);
+}
+
+export function fetchShows(page = 0): Promise<Array<Show>> {
+  const _page = new URLSearchParams({
+    page: page as unknown as string,
+  });
+
+  return get<Array<Show>>(`${baseUrl}/shows?${_page}`);
 }
 
 export function fetchShow(id: string, embed?: string): Promise<Show> {
@@ -46,6 +55,7 @@ export function fetchShow(id: string, embed?: string): Promise<Show> {
 }
 
 export const query = {
+  searchShows,
   fetchShows,
   fetchShow,
 };

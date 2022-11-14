@@ -1,3 +1,5 @@
+export const Genres = ["Drama", "Comedy", "Science-Fiction", "Sports"];
+
 export interface SearchShow {
   score: number;
   show: Show;

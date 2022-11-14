@@ -21,11 +21,11 @@ let shows = ref<Array<SearchShow>>([]);
 function search() {
   shows.value = [];
   router.replace({ query: { s: input.value } });
-  fetchShows();
+  searchShows();
 }
 
-async function fetchShows() {
-  const data = await query.fetchShows(input.value);
+async function searchShows() {
+  const data = await query.searchShows(input.value);
   shows.value.push(...data);
 }
 
