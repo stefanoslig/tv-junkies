@@ -2,7 +2,7 @@
 import AppCarousel from "@/components/AppCarousel.vue";
 import ShowCard from "@/components/ShowCard.vue";
 import { query } from "@/api";
-import { Genres, type Show } from "@/api/types";
+import { type Show, QUERY_LIST } from "@/api";
 import { computed, onMounted, ref } from "vue";
 import { usebookmarksStore } from "@/stores/bookmarks";
 import { storeToRefs } from "pinia";
@@ -17,6 +17,8 @@ const showsFilteredByGenre = computed(() => (genre: string) => {
   return shows.value.filter((show) => show.genres.includes(genre)).slice(0, 20);
 });
 
+const queries = computed(() => [QUERY_LIST.movie[0], QUERY_LIST.tv[0]]);
+
 onMounted(async () => {
   loading.value = true;
   shows.value = await query.fetchShows();
@@ -26,7 +28,10 @@ onMounted(async () => {
 
 <template>
   <div v-if="!loading">
-    <AppCarousel v-for="genre of Genres" :key="genre" :title="genre"
+    <AppCarousel
+      v-for="item of queries"
+      :key="item.type + item.query"
+      :title="item.title"
       ><ShowCard
         v-for="show of showsFilteredByGenre(genre)"
         :key="show.id"

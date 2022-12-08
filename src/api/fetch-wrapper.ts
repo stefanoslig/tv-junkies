@@ -1,9 +1,14 @@
 import type { Show, Shows } from "./types";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
-const baseUrl = import.meta.env.VITE_MOVIES_API_URL;
+const baseUrl = "https://api.themoviedb.org/3";
 
 async function http<T>(path: string, options: RequestInit): Promise<T> {
-  const request = new Request(path, {
+  const _api_key = new URLSearchParams({
+    api_key: API_KEY,
+  });
+
+  const request = new Request(`${path}&${_api_key}`, {
     ...options,
     headers: {
       Accept: "application/json",
