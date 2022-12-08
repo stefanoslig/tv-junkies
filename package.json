@@ -14,9 +14,9 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "pinia": "^2.0.23",
-    "vue": "^3.2.41",
-    "vue-router": "^4.1.5"
+    "pinia": "^2.0.27",
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@iconify-json/ph": "^1.1.2",
