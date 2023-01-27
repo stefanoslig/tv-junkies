@@ -21,7 +21,7 @@ npm run lint
 
 ## Purpose of the project
 
-This project is inspired from [movies.nuxt.space](https://movies.nuxt.space/). My goal for the next three months is to create a replica of this project without using Nuxt. This will help me to learn Vue and also in the future will be a really useful project for someone who learns Vue and he doesn't want to bother with Nuxt related things.
+This project is inspired from [movies.nuxt.space](https://movies.nuxt.space/). My goal is to create a replica of this project without using Nuxt. I hope it will be a useful project for someone who learns Vue and he doesn't want to bother with Nuxt related things.
 
 ## Recommended IDE Setup
 
